@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\HealthController;
+use App\Http\Controllers\Api\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::get('health', [HealthController::class, 'index']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::post('sign-up',[UserController::class, 'signUp']);
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
