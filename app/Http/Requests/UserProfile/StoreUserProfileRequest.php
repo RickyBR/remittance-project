@@ -22,7 +22,7 @@ class StoreUserProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstName'     => ['required','string'],
+            'firstName'     => ['required', 'string'],
             'lastName'      => ['sometimes', 'nullable', 'string'],
             'email'         => ['required', 'email', 'unique' . User::class, 'email'],
             'password'      => ['required', 'string', 'min:8', 'max:32'],

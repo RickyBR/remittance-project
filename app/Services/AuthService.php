@@ -11,10 +11,10 @@ class AuthService
 {
     public function __construct()
     {
-    
     }
 
-    public function createUser(Request $request) {
+    public function createUser(Request $request)
+    {
         $data = $request->all();
 
         $user = new User();
@@ -26,11 +26,11 @@ class AuthService
 
         try {
             DB::beginTransaction();
-            
+
             $user->save();
 
             DB::commit();
-        } catch(\Throwable $throwable) {
+        } catch (\Throwable $throwable) {
             DB::rollback();
             report($throwable);
             throw $throwable;

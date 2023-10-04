@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('health', [HealthController::class, 'index']);
 
 Route::post('sign-up',[UserController::class, 'signUp']);
+Route::post('login',[UserController::class, 'login']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

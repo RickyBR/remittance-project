@@ -26,14 +26,14 @@ abstract class BaseRepository implements BaseRepositoryInterface
     public function update($id, array $data)
     {
         return $this->model::where('id', $id)
-        ->update($data);
+            ->update($data);
     }
 
     public function show($id, $columns = array('*'))
     {
         return $this->model::select($columns)
-        ->where('id', $id)
-        ->first();
+            ->where('id', $id)
+            ->first();
     }
 
     public function delete($id)
